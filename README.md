@@ -79,8 +79,7 @@ Request Parsing and Validation
 Compression and Caching
 Routing and URL Rewriting
 
-
-
+웹소켓 grpc trpc rpc web protocol
 3. 인덱스를 최적화 
 
 4. 동시성 문제란? 동시성 문제 해결 방법 
