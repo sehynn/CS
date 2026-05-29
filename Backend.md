@@ -56,8 +56,17 @@ singleton 관리
  
 
 ## 4. RESTFUL API란?
+웹에서 자원을(Resource) HTTP 방식으로 다루도록 설계한 API 스타일
+| Method | 의미    |
+| ------ | ----- |
+| GET    | 조회    |
+| POST   | 생성    |
+| PUT    | 전체 수정 |
+| PATCH  | 부분 수정 |
+| DELETE | 삭제    |
 
-
+철학 : Resource-Oriented/Stateless   
+행동 중심이 아니라 데이터 중심.
 
 ## 5. POST와 GET의 차이 
 GET
