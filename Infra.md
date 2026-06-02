@@ -162,6 +162,11 @@ CDN(Content Delivery Network)
 
 
 ## HTTP vs HTTPS 
+
+신뢰성 : reliability
+연결 지향 : Connection-oriented
+비연결 지향 : Connectionless
+
 ### 1. Connectionless 프로토콜 (비연결 지향)
   클라이언트가 서버에 요청(Request)을 했을 때, 그 요청에 맞는 응답(Response)을 보낸 후 연결을 끊는 처리방식이다.
 
@@ -228,6 +233,10 @@ Client sends Cookie every request
 - 흐름 및 혼잡 제어: 데이터 양을 조절하여 수신자의 버퍼 오버플로우를 막고 네트워크 혼잡을 방지합니다.
 - 주요 사용처: 웹 브라우징(HTTP), 파일 전송(FTP), 이메일(SMTP), 데이터베이스 통신.
 
+속도 speed performance low latency 
+실시간성 Real-time capability/processing 
+일방적으로 one-way 
+
 ### ⚡ UDP (사용자 데이터그램 프로토콜)신뢰성보다 속도와 실시간성이 중요한 비연결형 프로토콜입니다.
 - 연결 방식: 연결 설정 및 해제 과정이 없어 데이터를 즉시 발송합니다.
 - 신뢰성: 패킷 유실이나 순서 뒤바뀜을 확인하거나 교정하지 않고 일방적으로 전송합니다.
@@ -264,16 +273,21 @@ Request 3 → 독립 처리
 메시지 큐란?
 서비스 간 비동기 메시지 전달 시스템
 
+비동기 : Asynchronous
+동기 : Synchronous
+
 사용하는 이유
 1. 비동기 처리
 2. 서버 부하 감소
+   Reduce server load 
 3. 장애 전파 방지
+   Prevent cascading failures 
 4. 트래픽 버퍼 역할
 
 대표 기술 : RabbitMQ, Kafka, AWS SQS, Redis Stream  
 
 메시지 큐가 특히 필요한 상황
-- 대용량 트래픽
+- 대용량 large scale 트래픽
 - 이벤트 기반 아키텍처
 - 로그 수집
 - 알림 시스템
