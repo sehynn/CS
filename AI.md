@@ -31,3 +31,6 @@
 
  ## DAG : directed acyclic graph
  DAG는 방향성 비순환 그래프(Directed Acyclic Graph)의 약자입니다. 작업(Task)들이 화살표를 따라 한 방향으로만 흐르며, 다시 이전 작업으로 돌아오지 않는(순환하지 않는) 구조를 뜻합니다. 주로 데이터 파이프라인이나 워크플로우를 설계할 때 작업 간의 순서와 의존성을 정의하는 데 사용
+
+
+## 자동화 tool Hermes vs openclaw
