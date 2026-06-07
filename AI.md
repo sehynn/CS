@@ -34,3 +34,42 @@
 
 
 ## 자동화 tool Hermes vs openclaw
+
+
+## 머신러닝
+방대한 데이터를 바탕으로 스스로 패턴을 학습하고 예측/결정을 내리게 하는 AI 기술
+전통적인 conventional? programming is rule based 
+In contrast, 컴퓨터에게 데이터/정답(label)을 입력하여 그 안에 내재된 논리와 규칙(Model)을 기계가 직접 찾아내도록 훈련시킨다 
+학습 단계 - 방대한 양의 훈련 데이터를 분석해 알고리즘이 매개변수를 조정하며 모델 생성
+- 지도 학습 Supervised Learning : 입력 데이터와 정답(라벨)이 함꼐 주어진 상태에서 모델을 학습시킴. 스팸 메일 분류, 주택 가격 예측
+- 비지도 학습 Unsupervised Learning: 정답 없이 입력 데이터만 주어지며, 기계가 데이터의 숨겨진 구조, 패턴, 그룹을 스스로 파악 : 고객 세분화, 추천 시스템, 데이터 압축
+- 강화 학습 Reinforcement Learning: 컴퓨터가 어떤 환경에서 행동을 취하고, 그에 따른 보상이나 벌점을 통해 시행착오를 겪으며 최적의 행동 방식을 학습 
+
+예측 단계 - 완성된 모델에 새로운 미지의 데이터를 입력하여 분류나 수치 예측 등 결과를 도출 
+
+Machine Learning vs Deep Learning
+- 딥러닝이 머신러닝의 한 종류. 딥러닝은 인공 신경망 기반
+- 머신 러닝은 사람이 직접 데이터의 특징을 추출해야 하지만, 딥 러닝은 데이터양이 매우 많을 경우 기계가 스스로 특징을 추출하고 학습할 수 있어 이미지 인식, 음성 인식, 대규모 언어 모델 등에 직접 쓰임
+
+
+과적합 : 학습 데이터는 잘 맞추는데, 실제 새로운 데이터는 못 맞추는 상태 
+- 정상적인 모델은 "관심사가 겹칠수록 성공 확률이 높네"같은 패턴을 배우지만, 과적합된 모델은 "철수 + 영희 = 성공"처럼 데이터를 통째로 외워버림 -> 모델이 학습 데이터의 일반적인 패턴이 아니라 노이즈나 개별 사례까지 과도하게 학습해서, 새로운 데이터에 대한 성능이 떨어지는 현상이다.
+- Overfitting is a phenomenon where a model learns not only the general patterns in the training data but also the noise and specific cases, resulting in poor performance on new, unseen data. 
+- Train 정확도에 비해 Test 정확도가 너무 낮으면 과적합 의심
+- 머신러닝의 목표는 학습 데이터 맞추기가 아닌 새로운 데이터에서도 잘 맞추기
+
+
+Feature : 모델이 보는 정보
+나이차 = 3
+거리 = 5km
+관심사 겹침 = 4
+
+Label : 정답
+매칭 성공 = 1
+매칭 실패 = 0
+
+Dataset : feature + label 
+| age_gap | distance | interest_overlap | label |
+| ------- | -------- | ---------------- | ----- |
+| 2       | 3        | 5                | 1     |
+| 10      | 30       | 0                | 0     |
