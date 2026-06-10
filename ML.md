@@ -152,3 +152,49 @@ DB에 있는 로그에서 모델용 feature을 만드는 것
 ## Top-K 추천 
 후보들 중 점수가 가장 높은 k개만 추천하는 것 
 
+
+---
+
+
+## Two-Tower Embedding 
+- 사용자와 아이템을 각각 별도의 신경망으로 임베딩한 뒤, 같은 벡터 공간에서 유사도를 계산해 추천하는 모델
+- 모든 사용자 * 모든 아이템 조합을 모델에 넣으면, 1억 명 사용자 * 1000만 개 영상 = 10^15 조합 : 계산량이 너무 많다.
+
+[Two-Tower 구조] 
+         User Features
+               │
+               ▼
+        ┌──────────┐
+        │ User     │
+        │ Tower    │
+        └──────────┘
+               │
+      User Embedding
+               │
+               ▼
+
+         similarity
+       (dot product)
+
+               ▲
+               │
+      Item Embedding
+               │
+        ┌──────────┐
+        │ Item     │
+        │ Tower    │
+        └──────────┘
+               ▲
+               │
+         Item Features
+
+[추천 방법] 
+- 벡터 간 유사도를 계산
+- 좋아한 아이템은 가까워지고, 싫어한 아이템은 멀어지도록 임베딩 공간을 학습
+
+[장점]
+- 검색 속도. 아이템 임베딩은 미리 계산해둘 수 있기 때문에, 사용자가 들어오면 user Tower 실행, User Embedding 생성, 가장 가까운 Item 검색만 하면 된다.
+
+
+### ANN (Approximate Nearest Neighbor)와 함꼐 사용한다.
+
