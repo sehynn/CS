@@ -198,3 +198,6 @@ DB에 있는 로그에서 모델용 feature을 만드는 것
 
 ### ANN (Approximate Nearest Neighbor)와 함꼐 사용한다.
 
+
+## LightGBM 
+
