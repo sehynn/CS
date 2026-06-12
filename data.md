@@ -156,3 +156,8 @@ P(x) ∝ x^-α
 
 * 관계
   → Long Tail 현상은 Power Law 형태로 나타나는 경우가 많다.
+
+
+## KPI 
+
+key performance indicator 핵심 성과 지표 
