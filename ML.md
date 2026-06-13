@@ -198,6 +198,32 @@ DB에 있는 로그에서 모델용 feature을 만드는 것
 
 ### ANN (Approximate Nearest Neighbor)와 함꼐 사용한다.
 
+가장 비슷한 벡터를 빠르게 찾는 기술
+
+
+왜 필요할까?
+- ex. 유저가 천만명 있음. Two Tower 모델로 내 취향 벡터, 후보 유저 벡터 만듦.
+- 추천하려면? -> 전부 유사도를 계산해야 하는데, 
+
+
+- exact search로 모든 후보와 비교하면 천만명 * 벡터 연산으로 정확하지만 실시간 서비스 불가능.
+- 그래서 ANN -> 100퍼 정확하지 않아도 되니까 거의 비슷한 애들을 엄청 빨리 찾자
+- 실제 top 100이 a c f d ... 면 ann 은 a f c d ...
+- 순서가 다를 수 있으나 추천 품질은 거의 비슷하고 속도는 엄청 빨라짐
+- exact search : 책 백만권을 읽고 가장 비슷한 책 찾기 에 쓰고, 
+- ann : 책을 미리 장르별로 정리해두고 이 장르 근처만 찾아보기 에 쓰면 적합
+- 그래서 유저타워, 유저 임베딩 생성 후 ann 검색하고 후보 추출해서 랭킹모델 만들어서 top k 추천함
+- -> 추천 시스템의 candidate generation 단계의 핵심 기술. 
+
+
+### 대표적인 ann 알고리즘
+1. HNSW
+
+2. FAISS
+
+3. IVF
+
+- Relationship of Cosine Similarity
 
 ## LightGBM 
 
