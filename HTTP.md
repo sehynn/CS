@@ -7,7 +7,10 @@ HTTP와 HTTPS는 웹 브라우저(클라이언트)와 웹 서버가 데이터를
 
 참고 : https://aws.amazon.com/ko/compare/the-difference-between-https-and-http/
 
+HTTP and HTTPS are communication protocols used by web browsers (clients) and web servers to exchange data. The main difference between them is whether the data is encrypted. HTTPS is the secure version of HTTP.
 
+- HTTP: Data is transmitted in plain text without encryption. Therefore, on public Wi-Fi or unsecured networks, attackers may eavesdrop on the communication or steal sensitive information.
+- HTTPS: Data is encrypted using SSL/TLS certificates before transmission. As a result, even if a third party intercepts the data, it cannot be easily decrypted or read.
 
 ## HTTP와 HTTPS의 차이점은 무엇인가요?
 HTTP(Hypertext Transfer Protocol)는 클라이언트와 서버 간 통신을 위한 통신 규칙 세트 또는 프로토콜입니다. 사용자가 웹 사이트를 방문하면 사용자 브라우저가 웹 서버에 HTTP 요청을 전송하고 웹 서버는 HTTP 응답으로 응답합니다. 웹 서버와 사용자 브라우저는 데이터를 일반 텍스트로 교환합니다. 간단히 말해 HTTP 프로토콜은 네트워크 통신을 작동하게 하는 기본 기술입니다. 이름에서 알 수 있듯이 HTTPS(Hypertext Transfer Protocol Secure)는 HTTP의 확장 버전 또는 더 안전한 버전입니다. HTTPS에서는 브라우저와 서버가 데이터를 전송하기 전에 안전하고 암호화된 연결을 설정합니다.
