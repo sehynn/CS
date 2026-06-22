@@ -310,3 +310,9 @@ Android/iOS 차이 있었는가?
 
 
 ## ios podfile, android gradle  
+| 역할        | iOS                        | Android                    |
+| --------- | -------------------------- | -------------------------- |
+| 패키지 관리자   | CocoaPods                  | Gradle                     |
+| 설정 파일     | Podfile                    | build.gradle               |
+| 하는 일      | 라이브러리 설치, 빌드 설정            | 라이브러리 설치, 빌드 설정            |
+| npm에 비유하면 | package.json + npm install | package.json + npm install |
