@@ -626,7 +626,7 @@ Aurora Serverless
 ---
 
 # Fastlane
-
+모바일 앱 배포(빌드, 테스트, 코드 서명 등)를 자동화해주는 오픈소스 도구 
 Fastlane은 모바일 앱(iOS/Android)의 빌드, 테스트, 코드 서명(Code Signing), 배포 과정을 자동화해주는 오픈소스 도구입니다.
 
 즉,
