@@ -308,3 +308,5 @@ Android/iOS 차이 있었는가?
 ## Future builder 
 
 
+
+## ios podfile, android gradle  
