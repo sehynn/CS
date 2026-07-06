@@ -545,3 +545,18 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 ## get set 
 
 ## pub sub 
+
+
+# Valkey 
+- 메모리(RAM)에 데이터를 저장하는 Key-Value DB
+- 빠른 임시 데이터 저장 (접속 상태, 캐시 등)
+- 그럼 redis랑 뭐가 다르지..? 해서 봤더니 valkey가 redis에서 포크된 프로젝트래
+- 얘는 오픈소스임
+- redis랑 거의 비슷 둘다 메모리기반, 싱글 스레드 이벤트 루프 중심, 동일 프로토콜
+ 
+
+
+# Kafka 
+분산 이벤트 스트리밍 플랫폼(Distributed Event Streaming Platform)이자 분산 Commit Log
+# MSA 
+기능별로 서버를 분리해서 운영하는 방식
