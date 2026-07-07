@@ -544,7 +544,23 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 
 ## get set 
 
-## pub sub 
+
+## Redis pub/sub 
+- Redis의 메시지 전달 기능
+- pub : 메시지를 보냄
+- sub : 특정 채널을 구독하고 있다가 메시지를 받음
+-> Redis를 통해 다른 서버에게 메시지를 전달하는 기능
+  
+## Redis Adapter
+- Socket.IO가 Redis Pub/sub를 사용할 수 있게 해주는 어댑터
+- 서버가 여러 대면 서버1에서 발생한 socket 이벤트를 서버2, 서버3도 알아야 한다. 그 전달을 Redis Pub/Sub가 담당하고, Socket IO가 그 기능을 쉽게 쓸 수 있도록 만든 라이브러리가 Redis Adapter
+
+
+
+## Redis Streams 
+- 메시지 저장 큐
+- pub/sub는 메시지를 보내는 순간 구독 중인 사람만 받는다. Subscriber가 꺼져 있으면 메시지 저장되지 않음. Stream에 저장하면 댐
+- producer -> redis streams -> consumer 
 
 
 # Valkey 
@@ -560,3 +576,11 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 분산 이벤트 스트리밍 플랫폼(Distributed Event Streaming Platform)이자 분산 Commit Log
 # MSA 
 기능별로 서버를 분리해서 운영하는 방식
+
+
+## FCM/APNs 
+- FCM : Firebase Cloud Messaging -> 푸시 알림을 보내기 위한 구글의 서비스 
+- APNs : Apple Push Notification service -> 애플이 운영하는 푸시 서버
+- 안드로이드는 그냥 서버 -> fcm -> 안드로이드 / 아이폰은 서버 -> fcm -> APNs -> 아이폰
+- 
+
