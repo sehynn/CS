@@ -584,3 +584,21 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 - 안드로이드는 그냥 서버 -> fcm -> 안드로이드 / 아이폰은 서버 -> fcm -> APNs -> 아이폰
 - 
 
+
+## Websocket 설계 
+### STicky Session?
+- 로드 밸런서가 한 번 연결된 사용자를 항상 같은 서버로 보내는 것
+- Websocket은 한 번 연결하면 연결을 계속 유지한다. 그래서 사용자가 이전에는 서버1로 연결되었는데, 갑자기 서버2로 연결되면 안 됨.
+- 웹소켓 연결 정보는 특정 서버 메모리에 저장되기 때문에, 같은 사용자는 계속 같은 서버로 보내야 한다.
+
+### Redis Adapter vs Sticky Session 
+- Redis Adapter : 서버끼리 이벤트를 공유함.
+- Sticky Session : 이벤트 공유와 관계없이 사용자가 항상 같은 서버에 연결되도록 함.
+
+### Round Robin
+- 로드 밸런서가 요청을 서버들에게 순차적으로 하나씩 분배하는 방식
+- 매번 새로운 요청마다 서버를 바꿔 보낼 수 있다.
+
+### ALB : Application Load Balancer
+- 여러 서버 앞에서 들어오는 요청을 적절한 서버로 분배해주는 ㅂ장치
+- 요청 분배/헬스 체크/Sticky Session 지원
