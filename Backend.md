@@ -600,5 +600,18 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 - 매번 새로운 요청마다 서버를 바꿔 보낼 수 있다.
 
 ### ALB : Application Load Balancer
-- 여러 서버 앞에서 들어오는 요청을 적절한 서버로 분배해주는 ㅂ장치
+- 여러 서버 앞에서 들어오는 요청을 적절한 서버로 분배해주는 장치
 - 요청 분배/헬스 체크/Sticky Session 지원
+
+### 영속성 
+- 데이터가 프로그램이 종료되어도 계속 저장되는 성질
+- 영속성이 없는 경우 : 메모리(RAM)에만 저장, 프로그램 종료 시 데이터 사라짐
+- 영속성이 있는 경우 : DB나 파일에 저장.
+- Redis는 기본적으로 메모리 기반이지만, RDB(relational 아니고 redis래)/AOF 기능을 사용하면 디스크에 저장하여 영속성을 가질 수 있다.
+- rdb : redis db 특정 시점의 메모리 데이터를 통째로 스냅샷하는 방식
+- aof : append only file => redis에서 수행한 모든 쓰기 명령을 로그처럼 차례대로 저장하는 방식
+
+### Connection Lifecycle 
+- 클라이언트가 연결을 시작해서 종료할 때까지 어떤 처리를 할지 설계해야 된다.
+- 연결 -> 인증 -> 룸 입장 -> 메시지 송수신 -> 연결 종료
+
