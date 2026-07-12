@@ -25,7 +25,13 @@ state가 변경되면 state의 주소값이 변경되고 리액트가 이 변화
 그렇기 때문에 state가 배열의 형태로 존재할 때 배열의 원소를 .push()로 추가하더라도
 state는 변화를 알아채질 못한다. 
 
- 
+### How useState works 
+1. 리액트에서 어떻게 선언하는지
+2. 리액트에서 상태관리가 필요한 이유와 웹 퍼포먼스 연계
+3. 상태변경시 리액트 내부에서 나타나는 일
+4. 리액트의 Hook 시스템 - 리액트의 재렌더링에도 변수값이 변화하지 않는 이유
+5. Virtual DOM
+
 
 
 ### How can I manage the state without library
