@@ -33,6 +33,18 @@ state는 변화를 알아채질 못한다.
 5. Virtual DOM
 
 
+### 리렌더링이 많다 = 성능이 나쁘다?
+
+리렌더링을 줄여야 하기 때문에, useMemo, React.memo, usecallback을 사용을 하지만, 원리를 
+
+- Rendering Pipeline : Trigger -> Render -> Commit 
+ 
+- 왜 큐에 쌓이는 방식?
+  setState를 호출하는 순간, 리액트는 바로 컴포넌트를 재실행하는 것이 아니라, 다시 그려야 한다는 작업 항목을 만들어 스케줄러에 등록해 놓고, 실제 실행은 적절한 타이밍에 일괄 처리한다.
+  그래서 배칭, 클로저의 스냅샷 문제, 우선 순위 기반 스케줄링의 문제가 있다. 
+
+- 브라우저의 reflow/repaint와는 뭐가 다를까?
+
 
 ### How can I manage the state without library
 - state 란...
