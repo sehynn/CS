@@ -27,10 +27,19 @@ state는 변화를 알아채질 못한다.
 
 ### How useState works 
 1. 리액트에서 어떻게 선언하는지
-2. 리액트에서 상태관리가 필요한 이유와 웹 퍼포먼스 연계
-3. 상태변경시 리액트 내부에서 나타나는 일
-4. 리액트의 Hook 시스템 - 리액트의 재렌더링에도 변수값이 변화하지 않는 이유
-5. Virtual DOM
+   const [state, setState] = useState(0)
+   setState is a method(x, function) that manages(x, updates) the state
+   if the state changes, react repaints the ui, (x react do not repaint immidiately... they schedule a re-render of the component) so we need to manage the states properly. Because it is deeply connected to web performance. 
+   That's why many people use useMemo or react.memo. (x -> useMemo does not save the state, they temporarily cache the calculation results or function references) 
+   people temporarily save states through them because react has a DOM structure. (x react does not have a DOM structure, it only uses virtual DOM)
+   DOM stands for Document Object Model, and it is kind of like a tree structure.
+   It costs a lot when we change the state,  (x changing state itself is not that expensive.. The most expensive part is DOM update, Layout and paint) and if always repaint the UI, so react updates only the parts of the UI that have changed, so that the cost is minimized.  
+ 
+   
+3. 리액트에서 상태관리가 필요한 이유와 웹 퍼포먼스 연계
+4. 상태변경시 리액트 내부에서 나타나는 일
+5. 리액트의 Hook 시스템 - 리액트의 재렌더링에도 변수값이 변화하지 않는 이유
+6. Virtual DOM
 
 
 ### 리렌더링이 많다 = 성능이 나쁘다?
