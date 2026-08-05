@@ -24,3 +24,20 @@ SQL is a table-based database that focuses on maintaining relationships and ensu
 
 
 ## 관계형 모델 
+
+
+
+Valkey vs Redis
+Valkey는 Redis 7.2를 포크(Fork)했으나, 운영의 지속성과 성능 최적화 방향에서 차이가 벌어지고 있다.
+
+비교 항목	Valkey (Linux Foundation)	Redis (Redis Ltd.)
+라이선스	BSD 3-Clause (완전 오픈소스)	RSALv2 / SSPLv1 (제약 있음)
+거버넌스	커뮤니티 및 빅테크(AWS, Google) 연합	단일 기업 독점
+I/O 모델	Aggressive Multi-threading	보수적 Multi-threading (6.0+)
+확장성	모든 기능을 코어(Core)에 통합 지향	고급 기능은 유료(Enterprise) 모듈화 경향
+어떤 것이 다를까?
+1. 멀티 스레딩의 적극적 활용 (Aggressive Multi-threading)
+Redis: 6.0부터 I/O(네트워크 읽기/쓰기) 처리에만 제한적으로 멀티 스레드를 도입
+Valkey: I/O뿐만 아니라 데이터 마이그레이션(Slot Migration) 백그라운드 작업 등 부하가 큰 작업에 멀티 스레드를 더 적극적으로 사용하여 메인 스레드의 Blocking을 최소화
+2. 메모리 할당 최적화 (Memory Efficiency)
+Valkey: jemalloc 등 고성능 메모리 할당자의 최신 기능을 빠르게 적용하여 메모리 파편화(Fragmentation)를 줄이고 동일 스펙 대비 더 높은 처리량(QPS)을 확보
