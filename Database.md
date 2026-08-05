@@ -27,7 +27,7 @@ SQL is a table-based database that focuses on maintaining relationships and ensu
 
 
 
-Valkey vs Redis
+## Valkey vs Redis
 Valkey는 Redis 7.2를 포크(Fork)했으나, 운영의 지속성과 성능 최적화 방향에서 차이가 벌어지고 있다.
 
 비교 항목	Valkey (Linux Foundation)	Redis (Redis Ltd.)
