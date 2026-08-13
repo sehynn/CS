@@ -582,7 +582,7 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 - FCM : Firebase Cloud Messaging -> 푸시 알림을 보내기 위한 구글의 서비스 
 - APNs : Apple Push Notification service -> 애플이 운영하는 푸시 서버
 - 안드로이드는 그냥 서버 -> fcm -> 안드로이드 / 아이폰은 서버 -> fcm -> APNs -> 아이폰
-- 
+- 앱에서 FCM SDK를 사용하면 FCM Token이라는 기기별 식별값을 받는다. 이 토큰을 백엔드에 저장해두고, 해당 토큰으로 푸시 보낸다.
 
 
 ## Websocket 설계 
@@ -618,4 +618,19 @@ A deadlock occurs when two or more threads wait indefinitely for resources held 
 ### Hot Path  
 - Hot Path : 가장 자주 실행되느느 코드 경로 - critical execution path라함
 
+
+### process
+- kafka : 서비스 경계를 넘는 도메인 이벤트
+- REST : 명령
+- Valkey : 같은 서비스 내부 실시간 신호
+
+- kafka를 왜쓸까? 
+1. 오프셋 기반 재생(replay)가 가능한 로그
+   - rabbitmq나 sqs같은 일반적인 큐는 컨슈머가 메시지를 한 번 처리(ack)하면 그 메시지는 사라짐. -> 이미 유실된 메시지는 복구 불가능 
+   - 카프카는 컨슈머가 읽어가도 메시지는 토픽에 그대로 남아있음. 그래서 그 구간의 오프셋으로 되감으면 복구할 수 있다.
+  
+2. 파티션 키 기준 순서 보장
+   - kafka는 같은 파티션 키를 가진 메시지끼리는 순서가 보장된다. 같은 계정에 대해 suspend 다음에 release가 왔는데 순서가 뒤바뀌어 도착하면 해제됐는데 여전히 정지 상태라는 완전히 반대의 결과가 나온다. 일반 큐(특히 sqs standard)는 기본적으로 순서를 보장 안한다.
+
+- Outbox pattern 자체(트랜잭션과 원자적으로 묶어 발행)는 사실 Sqs로도 구현 가능해서 카프카만의 장점은 아님. kafka여야 하는 이유는 오프셋 재생으로 컨슈머 재시작,복구가 되고, 파티션 키로 순서를 보장받아야 하는 두 가지 요구사항이 제재/자동신고 이벤트에 있어서임. 채팅 푸시 발송처럼 순서 보장이 필요없는 곳엔 sqs 쓴다.
 
