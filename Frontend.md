@@ -419,3 +419,14 @@ this
 React Rendering
 CSR vs SSR
 CORS
+
+
+## 다국어 지원 
+- i18next :  i18next는 다국어 지원을 위한 JavaScript 라이브러리이며, react-i18next는 i18next를 리액트에서 사용하기 위한 라이브러리입니다.  npm install 명령어를 통해 설치합니다.
+- resources : 앞서 정의한 번역 리소스 객체를 사용하는 것입니다.
+
+- lng : 기본 언어를 설정하는 것입니다. 위에서는 'ko'로 설정했기에 애플리케이션이 처음 실행될 때 한국어를 기본 언어로 사용하게 됩니다.
+
+- fallbackLng : 설정된 언어(lng)에서 번역을 찾을 수 없는 경우, 기본 언어로 사용할 언어를 지정합니다. 
+
+- interpolation : {escapeValue : false} : 보안상의 이유로, 사용자 입력 값을 출력할 때 XSS 공격을 방지하기 위해 escape 처리가 필요하지만 리액트에서는 기본적으로 보호되므로 false로 설정합니다.
