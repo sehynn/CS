@@ -430,3 +430,12 @@ CORS
 - fallbackLng : 설정된 언어(lng)에서 번역을 찾을 수 없는 경우, 기본 언어로 사용할 언어를 지정합니다. 
 
 - interpolation : {escapeValue : false} : 보안상의 이유로, 사용자 입력 값을 출력할 때 XSS 공격을 방지하기 위해 escape 처리가 필요하지만 리액트에서는 기본적으로 보호되므로 false로 설정합니다.
+
+
+
+## useQuery 
+- react query를 사용하여 GET 요청 처리시에 주로 useQuery를 사용하게 된다.이때 아무런 조건 없이 useQuery를 사용하게 되면 기본적으로 컴포넌트가 렌더링되는 시점에 데이터 가져오기를 시도한다.
+- 근데 특정한 이벤트가 발생했을 떄에만 데이터를 가져와야 하는 경우가 있다.
+- -> useMutation (post,put,delete같은 변경 작업에 적합) 사용 또는 useQuery의 enabled 훅으로 자동실행제어
+- 조건 만족 시 refetch 로 데이터 가져오기
+- throwOnError: 에러가 발생했을 때 예외를 던질지 여부. / cancelRefetch: 진행 중인 요청을 취소하고 새 요청을 시작할지 여부.
