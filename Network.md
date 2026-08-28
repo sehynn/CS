@@ -56,3 +56,18 @@
 
 ### UDP (User Datagram Protocol)
 - 빠른 전송에 초점을 둔 비연결형 프로토콜이다. 
+
+### SSL 
+
+### TLS 
+
+### RSA
+- static-RSA
+- Forward Secrecy
+- ECDHE
+
+### GCM/Chacha 
+
+### SHA256/384 MAC 
+
+### OpenSSL SECLEVEL 
